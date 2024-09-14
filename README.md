@@ -41,6 +41,12 @@ To start the Streamlit frontend, use the following command:
 ```bash
 streamlit run app.py
 ```
+
+###Streamlit interface
+![image](https://github.com/user-attachments/assets/4d66a58f-ab44-4533-a2ee-1921ea86fa07)
+![image](https://github.com/user-attachments/assets/af27ad6a-03b7-47a0-8b56-4c449b372078)
+![image](https://github.com/user-attachments/assets/196430ee-5f05-478d-b8c4-6c4e3b8a26ee)
+
 ## Data
 
 The dataset used for this project is the [MovieLens dataset](https://grouplens.org/datasets/movielens/) which includes movie ratings and metadata. The following files are utilized:
