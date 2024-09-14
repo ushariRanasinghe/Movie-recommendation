@@ -42,7 +42,8 @@ To start the Streamlit frontend, use the following command:
 streamlit run app.py
 ```
 
-###Streamlit interface
+### Streamlit interface
+
 ![image](https://github.com/user-attachments/assets/4d66a58f-ab44-4533-a2ee-1921ea86fa07)
 ![image](https://github.com/user-attachments/assets/48575d0c-9054-46e7-bf8c-afa2fa25d6a3)
 ![image](https://github.com/user-attachments/assets/d437b590-5c8f-4bd6-9b14-7ec9d9e15c50)
