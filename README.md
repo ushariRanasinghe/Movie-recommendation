@@ -1,43 +1,46 @@
 # Movie Recommendation System
 
-This project implements a movie recommendation system using two different approaches: **Surprise** and **PySpark**. The primary goal is to provide movie recommendations based on user ratings using collaborative filtering techniques.
+A movie recommendation system using collaborative filtering with Surprise and PySpark and a content-based kNN system. The collaborative filtering models recommend movies based on user preferences, leveraging past ratings to find similar users and suggest unseen movies. The kNN model uses keywords and genres to find movies similar to a user’s selected titles, offering quick suggestions based on content. The system includes a Streamlit frontend for movie search, selection, and recommendations.
 
-## Table of Contents
+Both approaches have distinct advantages: 
 
-1. [Overview](#overview)
-2. [Requirements](#requirements)
-3. [Data](#data)
-4. [Surprise Recommender System](#surprise-recommender-system)
-5. [PySpark Recommender System](#pyspark-recommender-system)
-6. [Results](#results)
-7. [Usage](#usage)
-8. [License](#license)
+Collaborative Filtering excels at personalization, using user behavior patterns to make recommendations that may surprise the user but fit their tastes.
 
-## Overview
+kNN shines in cold-start situations, where no historical user data is available. It bases recommendations on the content of the movies themselves, ensuring users get relevant results even with no prior behavior data.
 
-This project explores two different recommendation algorithms for predicting user preferences for movies:
+## Features
 
-- **Surprise**: An easy-to-use Python library for building and evaluating recommender systems.
-- **PySpark**: A scalable machine learning library in Apache Spark for handling large-scale data processing.
+- **Collaborative Filtering**:
+  - **SVD** (Singular Value Decomposition) for collaborative filtering based on user ratings.
+  - **ALS** (Alternating Least Squares) for collaborative filtering, leveraging user ratings for recommendations.
 
-## Requirements
+- **Content-based kNN**:
+  - Utilizes **TF-IDF vectorization** on movie genres and keywords.
+  - Implements **k-Nearest Neighbors (kNN)** to recommend similar movies based on user-selected movies.
 
-The following libraries are required to run this project:
+- **Streamlit Frontend**:
+  - Interactive user interface for movie search and selection.
+  - Displays selected movie tags and provides recommendations based on user inputs.
+  - Allows dynamic addition and removal of movie tags.
+  - 
+## Installation
 
-- `numpy`
-- `pandas`
-- `scipy`
-- `matplotlib`
-- `seaborn`
-- `surprise`
-- `pyspark`
+1. Clone the repository
+    
+2. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-You can install the necessary libraries using `pip`:
+## Usage
+
+### Run the Streamlit App
+
+To start the Streamlit frontend, use the following command:
 
 ```bash
-pip install numpy pandas scipy matplotlib seaborn surprise pyspark
+streamlit run app.py
 ```
-
 ## Data
 
 The dataset used for this project is the [MovieLens dataset](https://grouplens.org/datasets/movielens/) which includes movie ratings and metadata. The following files are utilized:
@@ -46,32 +49,3 @@ The dataset used for this project is the [MovieLens dataset](https://grouplens.o
 - `movies_metadata.csv`: Contains metadata about movies.
 - `links.csv`: Maps movies to their TMDB identifiers.
 
-## Surprise Recommender System
-
-The Surprise library is used for building a recommender system based on Singular Value Decomposition (SVD). The steps include:
-
-1. **Loading Data**: The movie ratings data is loaded into a Pandas DataFrame.
-2. **Data Visualization**: Distribution of ratings and average rating per user are plotted.
-3. **Building Interaction Matrix**: An interaction matrix is created for the collaborative filtering model.
-4. **Training SVD Model**: The SVD model is trained and evaluated using cross-validation.
-5. **Saving and Loading Model**: The trained model is saved and loaded using the Surprise library.
-6. **Generating Recommendations**: The top N recommendations for a specific user are generated and displayed.
-
-## PySpark Recommender System
-
-The PySpark library is used for large-scale data processing and building a recommendation model with Alternating Least Squares (ALS). The steps include:
-
-1. **Loading Data**: The movie ratings data is loaded into a Spark DataFrame.
-2. **Data Preparation**: User and movie IDs are mapped to unique integer values.
-3. **Building ALS Model**: The ALS model is trained and evaluated using RMSE.
-4. **Generating Recommendations**: Recommendations for a user are generated, and movie titles are fetched using metadata.
-
-## Results
-
-- **Surprise Recommender System**: Detailed evaluation metrics such as RMSE and MAE are provided. Top N recommendations for a user are displayed.
-- **PySpark Recommender System**: RMSE for the ALS model is calculated, and top recommendations for a user are shown.
-
-## Usage
-
-1. **Surprise Recommender System**: Execute the script for the Surprise model to train the SVD algorithm and get recommendations.
-2. **PySpark Recommender System**: Execute the script for the PySpark model to train the ALS algorithm and get recommendations.
