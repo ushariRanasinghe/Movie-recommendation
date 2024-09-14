@@ -4,3 +4,4 @@ scipy
 scikit-learn
 joblib
 streamlit
+streamlit_searchbox
